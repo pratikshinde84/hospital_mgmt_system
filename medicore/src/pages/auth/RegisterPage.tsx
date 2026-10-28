@@ -76,8 +76,6 @@ export default function RegisterPage() {
   const patientForm = useForm<PatientForm>({ resolver: zodResolver(patientSchema) });
   const hospitalForm = useForm<HospitalForm>({ resolver: zodResolver(hospitalSchema) });
 
-import { login } from '../../services/authService';
-
   const onPatientSubmit = async (data: PatientForm) => {
     setIsLoading(true);
     await new Promise((r) => setTimeout(r, 500));
