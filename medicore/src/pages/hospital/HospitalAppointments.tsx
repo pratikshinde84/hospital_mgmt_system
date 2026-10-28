@@ -243,7 +243,7 @@ export default function HospitalAppointments() {
               { label: 'Department', value: viewAppt.department },
               { label: 'Date', value: format(new Date(viewAppt.date), 'PPP') },
               { label: 'Time', value: viewAppt.timeSlot },
-              { label: 'Consultation Fee', value: `â‚¹${viewAppt.consultationFee}` },
+              { label: 'Consultation Fee', value: `Rs. ${viewAppt.consultationFee}` },
               { label: 'Status', value: viewAppt.status },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">

@@ -53,7 +53,7 @@ export default function HospitalRecords() {
       </div>
       <div className="mb-5 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-center gap-2">
         <AlertTriangle size={14} className="text-amber-600 shrink-0" />
-        <p className="text-xs text-amber-700 dark:text-amber-400">Sample Data â€” Not Valid Medical Documents. For demonstration purposes only.</p>
+        <p className="text-xs text-amber-700 dark:text-amber-400">Sample Data - Not Valid Medical Documents. For demonstration purposes only.</p>
       </div>
       {records.length === 0 ? (
         <EmptyState icon={FileText} title="No records" description="Add medical records for patients." />

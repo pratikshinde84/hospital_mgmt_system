@@ -322,7 +322,7 @@ export default function BookAppointment() {
                   onChange={(e) => setReason(e.target.value)}
                   className="input-field resize-none"
                   rows={3}
-                  placeholder="Briefly describe your symptoms or reason (demo data only â€” do not enter real medical information)"
+                  placeholder="Briefly describe your symptoms or reason (demo data only - do not enter real medical information)"
                   maxLength={300}
                 />
                 <p className="text-xs text-slate-400 mt-1">{reason.length}/300</p>

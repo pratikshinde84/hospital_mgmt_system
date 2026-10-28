@@ -37,7 +37,7 @@ export default function HospitalPatients() {
       .map(([id, data]) => ({
         id,
         name: data.patient?.fullName ?? data.appts[0]?.patientName ?? 'Unknown',
-        phone: data.patient?.phone ?? data.appts[0]?.patientPhone ?? 'â€”',
+        phone: data.patient?.phone ?? data.appts[0]?.patientPhone ?? '-',
         appointments: data.appts,
         patient: data.patient,
         lastVisit: data.appts
@@ -90,7 +90,7 @@ export default function HospitalPatients() {
                       <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{p.phone}</td>
                       <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{p.appointments.length}</td>
                       <td className="px-4 py-3 text-slate-600 dark:text-slate-400">
-                        {p.lastVisit ? format(new Date(p.lastVisit), 'MMM d, yyyy') : 'â€”'}
+                        {p.lastVisit ? format(new Date(p.lastVisit), 'MMM d, yyyy') : '-'}
                       </td>
                       <td className="px-4 py-3">{lastAppt && <StatusBadge status={lastAppt.status} />}</td>
                       <td className="px-4 py-3">
@@ -115,13 +115,13 @@ export default function HospitalPatients() {
           <div className="p-6 space-y-3 text-sm">
             {[
               { label: 'Name', value: viewPatient.patient?.fullName ?? 'Unknown' },
-              { label: 'Email', value: viewPatient.patient?.email ?? 'â€”' },
-              { label: 'Phone', value: viewPatient.patient?.phone ?? 'â€”' },
-              { label: 'DOB', value: viewPatient.patient?.dateOfBirth ? format(new Date(viewPatient.patient.dateOfBirth), 'PPP') : 'â€”' },
-              { label: 'Gender', value: viewPatient.patient?.gender ?? 'â€”' },
-              { label: 'Blood Group', value: viewPatient.patient?.bloodGroup ?? 'â€”' },
+              { label: 'Email', value: viewPatient.patient?.email ?? '-' },
+              { label: 'Phone', value: viewPatient.patient?.phone ?? '-' },
+              { label: 'DOB', value: viewPatient.patient?.dateOfBirth ? format(new Date(viewPatient.patient.dateOfBirth), 'PPP') : '-' },
+              { label: 'Gender', value: viewPatient.patient?.gender ?? '-' },
+              { label: 'Blood Group', value: viewPatient.patient?.bloodGroup ?? '-' },
               { label: 'Total Appointments', value: String(viewPatient.apptCount) },
-              { label: 'Last Visit', value: viewPatient.lastVisit ? format(new Date(viewPatient.lastVisit), 'PPP') : 'â€”' },
+              { label: 'Last Visit', value: viewPatient.lastVisit ? format(new Date(viewPatient.lastVisit), 'PPP') : '-' },
             ].map((item) => (
               <div key={item.label} className="flex justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
                 <span className="text-slate-500 dark:text-slate-400">{item.label}</span>

@@ -4,11 +4,16 @@ import { motion, useInView } from '../../lib/motion';
 import {
   Heart, Hospital, Calendar, Users, Star, ArrowRight,
   MapPin, Phone, Clock, Shield, CheckCircle, ChevronDown,
-  Brain, Stethoscope, Baby, Eye, Pill, Zap, MessageCircle
+  Brain, Stethoscope, Zap,
 } from 'lucide-react';
 import { AnimatedCounter } from '../../components/common/AnimatedCounter';
 import { PublicNavbar } from '../../components/layout/PublicNavbar';
 import { seedHospitals } from '../../data/seedData';
+import {
+  FloatingCard, StaggerContainer, StaggerItem,
+  GlowCard, PulseCircle, AnimatedCross, ScrollProgressBar,
+  WaveDivider, GradientBorderCard, TypewriterText
+} from '../../components/common/AnimatedSVG';
 
 const features = [
   { icon: Calendar, title: 'Easy Appointment Booking', desc: 'Book appointments with top doctors in just a few clicks. Choose your preferred time slot instantly.', color: 'blue' },
@@ -30,7 +35,7 @@ const testimonials = [
   {
     name: 'Divya Krishnan',
     role: 'Patient',
-    text: 'MediCore made booking my cardiology appointment so easy. I found the hospital, checked the doctor\'s schedule, and got confirmed in minutes. Truly a great experience! [Demo Testimonial â€” Sample Data]',
+    text: 'MediCore made booking my cardiology appointment so easy. I found the hospital, checked the doctor\'s schedule, and got confirmed in minutes. Truly a great experience! [Demo Testimonial - Sample Data]',
     rating: 5,
     avatar: 'D',
     city: 'Bengaluru',
@@ -38,7 +43,7 @@ const testimonials = [
   {
     name: 'Rohan Malhotra',
     role: 'Patient',
-    text: 'Being able to see all my medical records and prescriptions in one place is fantastic. The AI assistant answered my queries about my medication clearly. [Demo Testimonial â€” Sample Data]',
+    text: 'Being able to see all my medical records and prescriptions in one place is fantastic. The AI assistant answered my queries about my medication clearly. [Demo Testimonial - Sample Data]',
     rating: 5,
     avatar: 'R',
     city: 'Delhi',
@@ -46,7 +51,7 @@ const testimonials = [
   {
     name: 'Anita Desai',
     role: 'Hospital Admin',
-    text: 'MediCore\'s hospital dashboard transformed how we manage appointments. The analytics give us clear insights into our operations every day. [Demo Testimonial â€” Sample Data]',
+    text: 'MediCore\'s hospital dashboard transformed how we manage appointments. The analytics give us clear insights into our operations every day. [Demo Testimonial - Sample Data]',
     rating: 5,
     avatar: 'A',
     city: 'Mumbai',
@@ -71,16 +76,14 @@ const colorMap: Record<string, string> = {
 };
 
 function Section({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
   return (
     <motion.section
-      ref={ref}
       id={id}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
       className={className}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5 }}
     >
       {children}
     </motion.section>
@@ -91,13 +94,27 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       <PublicNavbar />
+      <ScrollProgressBar />
 
       {/* Hero */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-        {/* BG decorations */}
+        {/* Animated BG blobs */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-1/4 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60" />
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-teal-100 dark:bg-teal-900/20 rounded-full blur-3xl opacity-40" />
+          <motion.div
+            className="absolute top-20 left-1/4 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60"
+            animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-10 right-1/4 w-96 h-96 bg-teal-100 dark:bg-teal-900/20 rounded-full blur-3xl opacity-40"
+            animate={{ scale: [1, 1.1, 1], x: [0, -15, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          />
+          <motion.div
+            className="absolute top-1/2 right-10 w-48 h-48 bg-purple-100 dark:bg-purple-900/10 rounded-full blur-3xl opacity-30"
+            animate={{ scale: [1, 1.2, 1], y: [0, -20, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -109,7 +126,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <PulseCircle color="#3b82f6" size={8} />
               <span className="text-sm font-medium text-blue-700 dark:text-blue-400">
                 Smart Hospital Management System
               </span>
@@ -124,9 +141,14 @@ export default function LandingPage() {
               Your Health,{' '}
               <span className="text-gradient">Our Priority</span>
               <br />
-              <span className="text-3xl md:text-4xl lg:text-5xl text-slate-600 dark:text-slate-300">
+              <motion.span
+                className="text-3xl md:text-4xl lg:text-5xl text-slate-600 dark:text-slate-300"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
                 Smarter Healthcare Starts Here
-              </span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
@@ -161,37 +183,35 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              College Demonstration Project â€” All data is fictional sample data
+              College Demonstration Project - All data is fictional sample data
             </motion.p>
           </div>
 
           {/* Stats */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
             {[
               { label: 'Demo Hospitals', value: 50, suffix: '+', icon: Hospital },
               { label: 'Demo Doctors', value: 200, suffix: '+', icon: Stethoscope },
               { label: 'Demo Appointments', value: 1000, suffix: '+', icon: Calendar },
               { label: 'Demo Patients', value: 5000, suffix: '+', icon: Users },
             ].map((stat) => (
-              <div
-                key={stat.label}
-                className="card p-5 text-center hover:shadow-card-hover transition-all duration-300"
-              >
-                <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <stat.icon size={20} className="text-blue-600 dark:text-blue-400" />
-                </div>
-                <div className="text-2xl font-bold font-heading text-slate-900 dark:text-white">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{stat.label}</div>
-              </div>
+              <StaggerItem key={stat.label}>
+                <GlowCard color="blue" className="card p-5 text-center">
+                  <motion.div
+                    className="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-3"
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  >
+                    <stat.icon size={20} className="text-blue-600 dark:text-blue-400" />
+                  </motion.div>
+                  <div className="text-2xl font-bold font-heading text-slate-900 dark:text-white">
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{stat.label}</div>
+                </GlowCard>
+              </StaggerItem>
             ))}
-          </motion.div>
+          </StaggerContainer>
         </div>
 
         {/* Scroll indicator */}
@@ -203,6 +223,8 @@ export default function LandingPage() {
           <ChevronDown size={24} className="text-slate-400" />
         </motion.div>
       </section>
+
+      <WaveDivider color="#f8fafc" />
 
       {/* Features */}
       <Section id="features" className="py-20 bg-slate-50 dark:bg-slate-900/50">
@@ -219,28 +241,27 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                className="card-hover p-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${colorMap[feature.color]} flex items-center justify-center mb-4 shadow-sm`}>
-                  <feature.icon size={22} className="text-white" />
-                </div>
-                <h3 className="text-base font-semibold text-slate-900 dark:text-white font-heading mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {feature.desc}
-                </p>
-              </motion.div>
+              <StaggerItem key={feature.title}>
+                <GlowCard color={feature.color} className="card-hover p-6 h-full">
+                  <motion.div
+                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${colorMap[feature.color]} flex items-center justify-center mb-4 shadow-sm`}
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <feature.icon size={22} className="text-white" />
+                  </motion.div>
+                  <h3 className="text-base font-semibold text-slate-900 dark:text-white font-heading mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </GlowCard>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </Section>
 
@@ -259,27 +280,20 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
             <div className="hidden lg:block absolute top-10 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-100 via-teal-100 to-emerald-100 dark:from-blue-900/20 dark:via-teal-900/20 dark:to-emerald-900/20" />
             {steps.map((step, i) => (
-              <motion.div
-                key={step.step}
-                className="relative text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center mx-auto mb-4 shadow-md relative z-10">
+              <FloatingCard key={step.step} delay={i * 0.15} className="relative text-center">
+                <motion.div
+                  className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center mx-auto mb-4 shadow-md relative z-10"
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                >
                   <step.icon size={24} className="text-white" />
                   <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-white dark:bg-slate-800 border-2 border-blue-200 dark:border-blue-700 flex items-center justify-center">
                     <span className="text-xs font-bold text-blue-600">{i + 1}</span>
                   </div>
-                </div>
-                <h3 className="font-semibold text-slate-900 dark:text-white font-heading mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {step.desc}
-                </p>
-              </motion.div>
+                </motion.div>
+                <h3 className="font-semibold text-slate-900 dark:text-white font-heading mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
+              </FloatingCard>
             ))}
           </div>
         </div>
@@ -291,7 +305,7 @@ export default function LandingPage() {
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="badge bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800 mb-2">
-                Demo Hospitals â€” Sample Data
+                Demo Hospitals - Sample Data
               </span>
               <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white">
                 Featured Hospitals
@@ -376,7 +390,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="badge bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 mb-3">
-              Testimonials â€” Demo Sample Data
+              Testimonials - Demo Sample Data
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white">
               What users are saying
@@ -501,7 +515,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <p className="text-sm leading-relaxed max-w-xs">
-                Smart Hospital Management System â€” A college final-year project demonstrating modern healthcare technology. All data is fictional.
+                Smart Hospital Management System - A college final-year project demonstrating modern healthcare technology. All data is fictional.
               </p>
             </div>
             <div>
@@ -543,7 +557,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-            <p>(c) 2026 MediCore â€” College Final Year Project. All sample data is fictional.</p>
+            <p>(c) 2026 MediCore - College Final Year Project. All sample data is fictional.</p>
             <p className="text-slate-500">
               Built with React + TypeScript + Tailwind CSS
             </p>

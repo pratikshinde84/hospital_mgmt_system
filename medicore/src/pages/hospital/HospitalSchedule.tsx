@@ -22,7 +22,7 @@ export default function HospitalSchedule() {
     <div className="p-6 max-w-5xl mx-auto">
       <div className="page-header">
         <h1 className="page-title flex items-center gap-2"><Clock size={22} className="text-teal-600" /> Today's Schedule</h1>
-        <p className="page-subtitle">{format(new Date(), 'EEEE, MMMM d, yyyy')} · {todayAppts.length} appointments</p>
+        <p className="page-subtitle">{format(new Date(), 'EEEE, MMMM d, yyyy')}  -  {todayAppts.length} appointments</p>
       </div>
 
       {todayAppts.length === 0 ? (
@@ -40,7 +40,7 @@ export default function HospitalSchedule() {
               <div className="w-px h-10 bg-slate-200 dark:bg-slate-700 shrink-0" />
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-slate-900 dark:text-white">{appt.patientName}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{appt.doctorName} · {appt.department}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{appt.doctorName}  -  {appt.department}</p>
               </div>
               <StatusBadge status={appt.status} />
             </div>

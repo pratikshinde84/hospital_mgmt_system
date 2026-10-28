@@ -59,7 +59,7 @@ export default function HospitalPrescriptions() {
       </div>
       <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-center gap-2">
         <AlertTriangle size={13} className="text-amber-600 shrink-0" />
-        <p className="text-xs text-amber-700 dark:text-amber-400">Sample Data â€” Not Valid Medical Documents.</p>
+        <p className="text-xs text-amber-700 dark:text-amber-400">Sample Data - Not Valid Medical Documents.</p>
       </div>
       {prescriptions.length === 0 ? (
         <EmptyState icon={Pill} title="No prescriptions" description="Add prescriptions for patients." />

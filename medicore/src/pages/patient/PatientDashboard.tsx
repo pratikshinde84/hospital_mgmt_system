@@ -12,6 +12,7 @@ import { getAllUsers } from '../../services/authService';
 import { getDoctorsByHospital } from '../../services/doctorService';
 import { getUserNotifications } from '../../services/notificationService';
 import { StatusBadge } from '../../components/common/StatusBadge';
+import { AnimatedStatCard } from '../../components/common/PageTransition';
 import type { HospitalUser, Appointment } from '../../types';
 
 const HEALTH_TIPS = [
@@ -91,10 +92,10 @@ export default function PatientDashboard() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard label="Total Appointments" value={total} icon={Calendar} color="bg-blue-500" />
-        <StatCard label="Upcoming" value={upcoming.length} icon={Clock} color="bg-amber-500" />
-        <StatCard label="Completed" value={completed} icon={CheckCircle} color="bg-emerald-500" />
-        <StatCard label="Cancelled" value={cancelled} icon={XCircle} color="bg-red-500" />
+        <AnimatedStatCard label="Total Appointments" value={total} icon={Calendar} color="bg-blue-500" delay={0} />
+        <AnimatedStatCard label="Upcoming" value={upcoming.length} icon={Clock} color="bg-amber-500" delay={0.1} />
+        <AnimatedStatCard label="Completed" value={completed} icon={CheckCircle} color="bg-emerald-500" delay={0.2} />
+        <AnimatedStatCard label="Cancelled" value={cancelled} icon={XCircle} color="bg-red-500" delay={0.3} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

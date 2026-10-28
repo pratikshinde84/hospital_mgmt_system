@@ -99,7 +99,7 @@ export default function LoginPage() {
             <Info size={16} className="text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
             <div>
               <p className="text-xs font-semibold text-amber-800 dark:text-amber-300 mb-1">
-                Demo Application â€” College Project
+                Demo Application - College Project
               </p>
               <p className="text-xs text-amber-700 dark:text-amber-400">
                 This uses localStorage only. Data exists only in this browser. Do not enter real credentials.
@@ -167,7 +167,7 @@ export default function LoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   {...register('password')}
                   className={cn('input-field pr-10', errors.password && 'border-red-400 focus:ring-red-400')}
-                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                  placeholder="Password"
                   autoComplete="current-password"
                 />
                 <button

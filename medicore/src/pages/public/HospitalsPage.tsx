@@ -73,7 +73,7 @@ export default function HospitalsPage() {
           </motion.h1>
           <p className="text-blue-100 mb-8">
             Browse demo hospitals, view departments, and book appointments.
-            <span className="block text-xs mt-1 text-blue-200">All hospitals are sample data â€” Demo Project</span>
+            <span className="block text-xs mt-1 text-blue-200">All hospitals are sample data - Demo Project</span>
           </p>
 
           {/* Search */}
