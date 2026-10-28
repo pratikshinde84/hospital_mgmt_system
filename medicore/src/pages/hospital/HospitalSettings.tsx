@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'sonner';
@@ -17,14 +17,16 @@ const pwSchema = z.object({
   confirmPassword: z.string(),
 }).refine((d) => d.newPassword === d.confirmPassword, { message: 'Passwords do not match', path: ['confirmPassword'] });
 
+type PwForm = z.infer<typeof pwSchema>;
+
 export default function HospitalSettings() {
   const { theme, setTheme } = useTheme();
   const { user } = useAuth();
   const [showPwd, setShowPwd] = useState(false);
   const [resetConfirm, setResetConfirm] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(pwSchema) });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<PwForm>({ resolver: zodResolver(pwSchema) });
 
-  const onPwSubmit = (data: z.infer<typeof pwSchema>) => {
+  const onPwSubmit: SubmitHandler<PwForm> = (data) => {
     if (!user) return;
     const res = changePassword(user.id, data.currentPassword, data.newPassword);
     if (res.success) { toast.success('Password changed'); reset(); }
@@ -62,9 +64,9 @@ export default function HospitalSettings() {
                 <input type={showPwd ? 'text' : 'password'} {...register('newPassword')} className="input-field pr-10" placeholder="Min 8 characters" />
                 <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">{showPwd ? <EyeOff size={15} /> : <Eye size={15} />}</button>
               </div>
-              {errors.newPassword && <p className="text-xs text-red-600 mt-1">{errors.newPassword.message}</p>}
+              {errors.newPassword && <p className="text-xs text-red-600 mt-1">{String(errors.newPassword.message)}</p>}
             </div>
-            <div><label className="label">Confirm Password</label><input type="password" {...register('confirmPassword')} className="input-field" />{errors.confirmPassword && <p className="text-xs text-red-600 mt-1">{errors.confirmPassword.message}</p>}</div>
+            <div><label className="label">Confirm Password</label><input type="password" {...register('confirmPassword')} className="input-field" />{errors.confirmPassword && <p className="text-xs text-red-600 mt-1">{String(errors.confirmPassword.message)}</p>}</div>
             <button type="submit" className="btn-primary"><Lock size={14} /> Change Password</button>
           </form>
         </div>

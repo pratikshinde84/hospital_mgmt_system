@@ -29,7 +29,7 @@ export default function HospitalDepartments() {
     const all = getAll<Department>(STORAGE_KEYS.DEPARTMENTS);
     if (editing) {
       const idx = all.findIndex((d) => d.id === editing.id);
-      if (idx !== -1) { all[idx] = { ...all[idx], ...form, updatedAt: new Date().toISOString() }; setStorage(STORAGE_KEYS.DEPARTMENTS, all); toast.success('Updated'); }
+      if (idx !== -1) { all[idx] = { ...all[idx], ...form }; setStorage(STORAGE_KEYS.DEPARTMENTS, all); toast.success('Updated'); }
     } else {
       const newDept: Department = { id: generateId('dept'), hospitalId: user!.id, ...form, isActive: true, createdAt: new Date().toISOString() };
       all.push(newDept); setStorage(STORAGE_KEYS.DEPARTMENTS, all); toast.success('Department added');
