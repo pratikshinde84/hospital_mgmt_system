@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from '../../lib/motion';
 import { MapPin, Phone, Clock, Hospital, Star, Calendar,
   Building2, CheckCircle, User, ExternalLink, AlertTriangle, ArrowLeft, Stethoscope
 } from 'lucide-react';
@@ -225,7 +225,7 @@ export default function HospitalDetailPage() {
                         <span className="capitalize text-slate-600 dark:text-slate-400">{day}</span>
                         {sch.isOpen ? (
                           <span className="text-slate-900 dark:text-white font-medium">
-                            {sch.openTime} – {sch.closeTime}
+                            {sch.openTime} â€“ {sch.closeTime}
                           </span>
                         ) : (
                           <span className="text-red-500">Closed</span>
@@ -241,7 +241,7 @@ export default function HospitalDetailPage() {
                     <MapPin size={15} className="text-blue-600" /> Location
                   </h3>
                   <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
-                    {hospital.address}, {hospital.city}, {hospital.state} – {hospital.pinCode}
+                    {hospital.address}, {hospital.city}, {hospital.state} â€“ {hospital.pinCode}
                   </p>
                   <a
                     href={mapsUrl}
@@ -312,7 +312,7 @@ export default function HospitalDetailPage() {
                 <div>
                   <p className="text-xs text-slate-500 mb-1">Full Address</p>
                   <p className="font-medium text-slate-900 dark:text-white">
-                    {hospital.address}, {hospital.city}, {hospital.state} – {hospital.pinCode}
+                    {hospital.address}, {hospital.city}, {hospital.state} â€“ {hospital.pinCode}
                   </p>
                 </div>
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center">
@@ -342,7 +342,7 @@ function DoctorCard({ doctor, hospitalId, isPatient }: { doctor: Doctor; hospita
       <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400 mb-4">
         <p>{doctor.qualification}</p>
         <p>{doctor.experience} years experience</p>
-        <p className="font-medium text-slate-900 dark:text-white">₹{doctor.consultationFee} consultation</p>
+        <p className="font-medium text-slate-900 dark:text-white">â‚¹{doctor.consultationFee} consultation</p>
       </div>
       <div className="flex items-center justify-between">
         <span className={`badge text-xs ${doctor.isAvailable ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
@@ -360,3 +360,4 @@ function DoctorCard({ doctor, hospitalId, isPatient }: { doctor: Doctor; hospita
     </div>
   );
 }
+

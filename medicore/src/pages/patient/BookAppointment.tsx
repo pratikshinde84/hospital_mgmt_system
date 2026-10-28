@@ -1,6 +1,6 @@
-import { useState, useMemo, useEffect } from 'react';
+﻿import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from '../../lib/motion';
 import { format } from 'date-fns';
 import { CheckCircle, ChevronRight, ChevronLeft, Calendar, Clock, Hospital, Stethoscope, User, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
@@ -203,7 +203,7 @@ export default function BookAppointment() {
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                 {selectedHospital?.hospitalName}
-                {selectedDept && ` · ${selectedDept}`}
+                {selectedDept && ` Â· ${selectedDept}`}
               </p>
               <input
                 value={searchDoctor}
@@ -238,8 +238,8 @@ export default function BookAppointment() {
                         </div>
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 space-y-0.5">
-                        <p>{d.experience} yrs experience · {d.qualification}</p>
-                        <p className="font-medium text-slate-700 dark:text-slate-300">₹{d.consultationFee} consultation fee</p>
+                        <p>{d.experience} yrs experience Â· {d.qualification}</p>
+                        <p className="font-medium text-slate-700 dark:text-slate-300">â‚¹{d.consultationFee} consultation fee</p>
                         <p>Works: {d.workingDays.map((w) => w.slice(0, 3)).join(', ')}</p>
                       </div>
                     </button>
@@ -257,7 +257,7 @@ export default function BookAppointment() {
                 <Calendar size={18} className="text-blue-600" /> Select Date & Time
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">
-                {selectedDoctor?.fullName} · Works on: {selectedDoctor?.workingDays.map((w) => w.slice(0, 3)).join(', ')}
+                {selectedDoctor?.fullName} Â· Works on: {selectedDoctor?.workingDays.map((w) => w.slice(0, 3)).join(', ')}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -320,7 +320,7 @@ export default function BookAppointment() {
                   onChange={(e) => setReason(e.target.value)}
                   className="input-field resize-none"
                   rows={3}
-                  placeholder="Briefly describe your symptoms or reason (demo data only — do not enter real medical information)"
+                  placeholder="Briefly describe your symptoms or reason (demo data only â€” do not enter real medical information)"
                   maxLength={300}
                 />
                 <p className="text-xs text-slate-400 mt-1">{reason.length}/300</p>
@@ -340,7 +340,7 @@ export default function BookAppointment() {
                   { label: 'Department', value: selectedDoctor?.department, icon: Stethoscope },
                   { label: 'Date', value: selectedDate ? format(new Date(selectedDate), 'PPP') : '', icon: Calendar },
                   { label: 'Time', value: selectedSlot, icon: Clock },
-                  { label: 'Consultation Fee', value: `₹${selectedDoctor?.consultationFee}`, icon: CheckCircle },
+                  { label: 'Consultation Fee', value: `â‚¹${selectedDoctor?.consultationFee}`, icon: CheckCircle },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50">
                     <div className="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
@@ -441,3 +441,4 @@ export default function BookAppointment() {
     </div>
   );
 }
+

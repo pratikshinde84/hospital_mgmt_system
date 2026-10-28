@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from '../../lib/motion';
 import { cn } from '../../utils/cn';
 
 interface LoadingSpinnerProps {
@@ -98,3 +98,4 @@ export function CardSkeleton() {
     </div>
   );
 }
+

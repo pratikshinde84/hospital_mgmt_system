@@ -1,6 +1,6 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from '../../lib/motion';
 import {
   LayoutDashboard,
   CalendarDays,
@@ -220,3 +220,4 @@ export function HospitalLayout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+

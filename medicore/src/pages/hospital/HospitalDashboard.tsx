@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
+﻿import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import {
   Calendar, CheckCircle, Clock, Users, Stethoscope,
@@ -68,7 +68,7 @@ export default function HospitalDashboard() {
           Welcome, {user?.name}
         </motion.h1>
         <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-          {format(new Date(), 'EEEE, MMMM d, yyyy')} · Hospital Dashboard
+          {format(new Date(), 'EEEE, MMMM d, yyyy')} Â· Hospital Dashboard
         </p>
       </div>
 
@@ -91,7 +91,7 @@ export default function HospitalDashboard() {
         {/* Appointment Trends */}
         <div className="lg:col-span-2 card p-6">
           <h2 className="font-semibold text-slate-900 dark:text-white font-heading mb-5">
-            Appointment Trends — Last 14 Days
+            Appointment Trends â€” Last 14 Days
           </h2>
           {analytics.trends.length > 0 ? (
             <ResponsiveContainer width="100%" height={220}>
@@ -167,7 +167,7 @@ export default function HospitalDashboard() {
                     <StatusBadge status={appt.status} />
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    {appt.doctorName} · {format(new Date(appt.date), 'MMM d')} at {appt.timeSlot}
+                    {appt.doctorName} Â· {format(new Date(appt.date), 'MMM d')} at {appt.timeSlot}
                   </p>
                 </div>
               ))}
@@ -245,3 +245,4 @@ export default function HospitalDashboard() {
     </div>
   );
 }
+

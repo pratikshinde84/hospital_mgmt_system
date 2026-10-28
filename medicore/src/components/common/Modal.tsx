@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import { useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from '../../lib/motion';
 import { X } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
@@ -161,3 +161,4 @@ export function ConfirmDialog({
     </Modal>
   );
 }
+

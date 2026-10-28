@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from '../../lib/motion';
 import {
   Search, MapPin, Phone, Clock, Hospital, Star, ArrowRight,
   SlidersHorizontal, X, Filter
@@ -73,7 +73,7 @@ export default function HospitalsPage() {
           </motion.h1>
           <p className="text-blue-100 mb-8">
             Browse demo hospitals, view departments, and book appointments.
-            <span className="block text-xs mt-1 text-blue-200">All hospitals are sample data — Demo Project</span>
+            <span className="block text-xs mt-1 text-blue-200">All hospitals are sample data â€” Demo Project</span>
           </p>
 
           {/* Search */}
@@ -255,3 +255,4 @@ export default function HospitalsPage() {
     </div>
   );
 }
+

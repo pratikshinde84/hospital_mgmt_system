@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+﻿import { useState, useMemo } from 'react';
+import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { Calendar, Search, Filter, Download, RefreshCw, X } from 'lucide-react';
 import { toast } from 'sonner';
@@ -183,12 +183,12 @@ export default function PatientAppointments() {
                     <StatusBadge status={appt.status} />
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
-                    {appt.department} · {appt.hospitalName}
+                    {appt.department} Â· {appt.hospitalName}
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs text-slate-500 dark:text-slate-400">
-                    <span>📅 {format(new Date(appt.date), 'PPP')}</span>
-                    <span>🕐 {appt.timeSlot}</span>
-                    <span>💰 ₹{appt.consultationFee}</span>
+                    <span>ðŸ“… {format(new Date(appt.date), 'PPP')}</span>
+                    <span>ðŸ• {appt.timeSlot}</span>
+                    <span>ðŸ’° â‚¹{appt.consultationFee}</span>
                   </div>
                   <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">ID: {appt.id}</p>
                 </div>
@@ -278,3 +278,4 @@ export default function PatientAppointments() {
     </div>
   );
 }
+

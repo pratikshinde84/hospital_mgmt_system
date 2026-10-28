@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { Bell, Check, CheckCheck, Trash2, Calendar, Pill, AlertCircle, Info } from 'lucide-react';
 import { useNotifications } from '../../hooks/useNotifications';
@@ -103,3 +103,4 @@ export default function PatientNotifications() {
     </div>
   );
 }
+

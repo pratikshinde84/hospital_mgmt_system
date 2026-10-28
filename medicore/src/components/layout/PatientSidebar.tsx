@@ -1,6 +1,6 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from '../../lib/motion';
 import {
   LayoutDashboard,
   Hospital,
@@ -226,3 +226,4 @@ export function PatientLayout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+

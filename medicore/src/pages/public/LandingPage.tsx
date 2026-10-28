@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from '../../lib/motion';
 import {
   Heart, Hospital, Calendar, Users, Star, ArrowRight,
   MapPin, Phone, Clock, Shield, CheckCircle, ChevronDown,
@@ -30,7 +30,7 @@ const testimonials = [
   {
     name: 'Divya Krishnan',
     role: 'Patient',
-    text: 'MediCore made booking my cardiology appointment so easy. I found the hospital, checked the doctor\'s schedule, and got confirmed in minutes. Truly a great experience! [Demo Testimonial — Sample Data]',
+    text: 'MediCore made booking my cardiology appointment so easy. I found the hospital, checked the doctor\'s schedule, and got confirmed in minutes. Truly a great experience! [Demo Testimonial â€” Sample Data]',
     rating: 5,
     avatar: 'D',
     city: 'Bengaluru',
@@ -38,7 +38,7 @@ const testimonials = [
   {
     name: 'Rohan Malhotra',
     role: 'Patient',
-    text: 'Being able to see all my medical records and prescriptions in one place is fantastic. The AI assistant answered my queries about my medication clearly. [Demo Testimonial — Sample Data]',
+    text: 'Being able to see all my medical records and prescriptions in one place is fantastic. The AI assistant answered my queries about my medication clearly. [Demo Testimonial â€” Sample Data]',
     rating: 5,
     avatar: 'R',
     city: 'Delhi',
@@ -46,7 +46,7 @@ const testimonials = [
   {
     name: 'Anita Desai',
     role: 'Hospital Admin',
-    text: 'MediCore\'s hospital dashboard transformed how we manage appointments. The analytics give us clear insights into our operations every day. [Demo Testimonial — Sample Data]',
+    text: 'MediCore\'s hospital dashboard transformed how we manage appointments. The analytics give us clear insights into our operations every day. [Demo Testimonial â€” Sample Data]',
     rating: 5,
     avatar: 'A',
     city: 'Mumbai',
@@ -160,7 +160,7 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              College Demonstration Project — All data is fictional sample data
+              College Demonstration Project â€” All data is fictional sample data
             </motion.p>
           </div>
 
@@ -290,7 +290,7 @@ export default function LandingPage() {
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="badge bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800 mb-2">
-                Demo Hospitals — Sample Data
+                Demo Hospitals â€” Sample Data
               </span>
               <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white">
                 Featured Hospitals
@@ -375,7 +375,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="badge bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 mb-3">
-              Testimonials — Demo Sample Data
+              Testimonials â€” Demo Sample Data
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white">
               What users are saying
@@ -406,7 +406,7 @@ export default function LandingPage() {
                   <div>
                     <p className="text-sm font-semibold text-slate-900 dark:text-white">{t.name}</p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {t.role} · {t.city}
+                      {t.role} Â· {t.city}
                     </p>
                   </div>
                 </div>
@@ -500,7 +500,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <p className="text-sm leading-relaxed max-w-xs">
-                Smart Hospital Management System — A college final-year project demonstrating modern healthcare technology. All data is fictional.
+                Smart Hospital Management System â€” A college final-year project demonstrating modern healthcare technology. All data is fictional.
               </p>
             </div>
             <div>
@@ -542,7 +542,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-            <p>© 2026 MediCore — College Final Year Project. All sample data is fictional.</p>
+            <p>Â© 2026 MediCore â€” College Final Year Project. All sample data is fictional.</p>
             <p className="text-slate-500">
               Built with React + TypeScript + Tailwind CSS
             </p>
@@ -552,3 +552,4 @@ export default function LandingPage() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from '../../lib/motion';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
@@ -44,3 +44,4 @@ export function EmptyState({
     </motion.div>
   );
 }
+

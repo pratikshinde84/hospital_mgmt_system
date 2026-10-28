@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+﻿import { useState, useMemo } from 'react';
+import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { Search, X, CheckCircle, XCircle, RefreshCw, Eye, Check } from 'lucide-react';
 import { toast } from 'sonner';
@@ -243,7 +243,7 @@ export default function HospitalAppointments() {
               { label: 'Department', value: viewAppt.department },
               { label: 'Date', value: format(new Date(viewAppt.date), 'PPP') },
               { label: 'Time', value: viewAppt.timeSlot },
-              { label: 'Consultation Fee', value: `₹${viewAppt.consultationFee}` },
+              { label: 'Consultation Fee', value: `â‚¹${viewAppt.consultationFee}` },
               { label: 'Status', value: viewAppt.status },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
@@ -321,3 +321,4 @@ export default function HospitalAppointments() {
     </div>
   );
 }
+

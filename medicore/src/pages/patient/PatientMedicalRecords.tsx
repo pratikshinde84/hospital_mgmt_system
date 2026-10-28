@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { motion } from 'framer-motion';
+﻿import { useMemo } from 'react';
+import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { FileText, AlertTriangle, Calendar, User, Hospital } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -27,7 +27,7 @@ export default function PatientMedicalRecords() {
         <AlertTriangle size={18} className="text-amber-600 shrink-0 mt-0.5" />
         <div>
           <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
-            Sample Data — Not Valid Medical Documents
+            Sample Data â€” Not Valid Medical Documents
           </p>
           <p className="text-xs text-amber-700 dark:text-amber-400 mt-1">
             All records displayed are fictional demo data for project demonstration only. Do not use for any medical purpose.
@@ -101,3 +101,4 @@ export default function PatientMedicalRecords() {
     </div>
   );
 }
+

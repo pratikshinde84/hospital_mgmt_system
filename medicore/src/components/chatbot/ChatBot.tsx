@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import { useState, useRef, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from '../../lib/motion';
 import { Bot, X, Send, Trash2, Minimize2, Maximize2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../../context/AuthContext';
@@ -126,7 +126,7 @@ export function ChatBot({ fullPage = false, className }: ChatBotProps) {
           >
             {/* Disclaimer */}
             <div className="px-4 py-2 bg-amber-50 dark:bg-amber-900/20 border-b border-amber-100 dark:border-amber-800 text-xs text-amber-700 dark:text-amber-400 shrink-0">
-              ⚕️ For general information only. Not medical advice. For emergencies, call 112.
+              âš•ï¸ For general information only. Not medical advice. For emergencies, call 112.
             </div>
 
             {/* Messages */}
@@ -232,7 +232,7 @@ export function ChatBot({ fullPage = false, className }: ChatBotProps) {
                 </button>
               </div>
               <p className="text-xs text-slate-400 text-center mt-2">
-                Not medical advice — For emergencies call 112
+                Not medical advice â€” For emergencies call 112
               </p>
             </div>
           </motion.div>
@@ -284,3 +284,4 @@ export function ChatBot({ fullPage = false, className }: ChatBotProps) {
     </>
   );
 }
+

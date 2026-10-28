@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from '../../lib/motion';
 import { Search, Stethoscope, Star, ArrowRight, Filter } from 'lucide-react';
 import { getAllDoctors } from '../../services/doctorService';
 import { getAllUsers } from '../../services/authService';
@@ -79,11 +79,11 @@ export default function PatientDoctors() {
                   </div>
                 </div>
                 <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400 mb-4">
-                  <p>🏥 {hospital?.hospitalName ?? 'Hospital'}</p>
-                  <p>📋 {doc.qualification}</p>
-                  <p>⭐ {doc.experience} years experience</p>
-                  <p className="font-medium text-slate-900 dark:text-white">₹{doc.consultationFee} consultation</p>
-                  <p>🗓 {doc.workingDays.map((d) => d.slice(0, 3)).join(', ')}</p>
+                  <p>ðŸ¥ {hospital?.hospitalName ?? 'Hospital'}</p>
+                  <p>ðŸ“‹ {doc.qualification}</p>
+                  <p>â­ {doc.experience} years experience</p>
+                  <p className="font-medium text-slate-900 dark:text-white">â‚¹{doc.consultationFee} consultation</p>
+                  <p>ðŸ—“ {doc.workingDays.map((d) => d.slice(0, 3)).join(', ')}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className={`badge text-xs ${doc.isAvailable ? 'bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400' : 'bg-red-50 text-red-600'}`}>
@@ -106,3 +106,4 @@ export default function PatientDoctors() {
     </div>
   );
 }
+

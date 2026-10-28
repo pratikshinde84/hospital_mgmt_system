@@ -1,9 +1,9 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from '../../lib/motion';
 import { Eye, EyeOff, Heart, UserPlus, AlertCircle, Info, User, Building } from 'lucide-react';
 import { toast } from 'sonner';
 import { registerPatient, registerHospital } from '../../services/authService';
@@ -444,3 +444,4 @@ export default function RegisterPage() {
     </div>
   );
 }
+

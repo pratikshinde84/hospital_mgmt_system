@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+﻿import { useState, useMemo } from 'react';
+import { motion } from '../../lib/motion';
 import { Plus, Search, Edit2, Trash2, Stethoscope, X, AlertCircle, ToggleLeft, ToggleRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '../../context/AuthContext';
@@ -198,7 +198,7 @@ export default function HospitalDoctors() {
                 <p>{doc.department}</p>
                 <p>{doc.qualification}</p>
                 <p>{doc.experience} years experience</p>
-                <p className="font-medium text-slate-900 dark:text-white">₹{doc.consultationFee} per consultation</p>
+                <p className="font-medium text-slate-900 dark:text-white">â‚¹{doc.consultationFee} per consultation</p>
                 <p>Works: {doc.workingDays.map((d) => d.slice(0, 3)).join(', ')}</p>
               </div>
 
@@ -261,7 +261,7 @@ export default function HospitalDoctors() {
               <input type="number" min={0} value={form.experience} onChange={(e) => setForm((f) => ({ ...f, experience: +e.target.value }))} className="input-field" />
             </div>
             <div>
-              <label className="label">Consultation Fee (₹)</label>
+              <label className="label">Consultation Fee (â‚¹)</label>
               <input type="number" min={0} value={form.consultationFee} onChange={(e) => setForm((f) => ({ ...f, consultationFee: +e.target.value }))} className="input-field" />
             </div>
             <div>
@@ -295,7 +295,7 @@ export default function HospitalDoctors() {
                 onChange={(e) => setForm((f) => ({ ...f, biography: e.target.value }))}
                 className="input-field resize-none"
                 rows={3}
-                placeholder="Brief professional biography... [Demo Profile — Sample Data]"
+                placeholder="Brief professional biography... [Demo Profile â€” Sample Data]"
               />
             </div>
           </div>
@@ -318,3 +318,4 @@ export default function HospitalDoctors() {
     </div>
   );
 }
+
