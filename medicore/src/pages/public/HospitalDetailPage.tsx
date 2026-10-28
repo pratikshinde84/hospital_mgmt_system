@@ -1,10 +1,8 @@
 import { useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {
-  Hospital, MapPin, Phone, Clock, ArrowLeft, Star, Calendar,
-  Stethoscope, Building2, Info, AlertTriangle, ExternalLink,
-  CheckCircle, XCircle, Shield, User
+import { MapPin, Phone, Clock, Hospital, Star, Calendar,
+  Building2, CheckCircle, User, ExternalLink, AlertTriangle, ArrowLeft, Stethoscope
 } from 'lucide-react';
 import { PublicNavbar } from '../../components/layout/PublicNavbar';
 import { getAllUsers } from '../../services/authService';

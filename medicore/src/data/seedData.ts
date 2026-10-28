@@ -9,7 +9,7 @@ import type {
   Department,
   Facility,
 } from '../types';
-import { generateId } from '../storage';
+import { getAll, setStorage, generateId } from '../storage';
 
 // ============================================================
 // Demo Seed Data — All fictional, for demonstration purposes
