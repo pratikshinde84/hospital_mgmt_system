@@ -1,4 +1,4 @@
-﻿import { useMemo } from 'react';
+import { useMemo } from 'react';
 import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { FileText, AlertTriangle, Calendar, User, Hospital } from 'lucide-react';

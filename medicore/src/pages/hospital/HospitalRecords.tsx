@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { format } from 'date-fns';
 import { motion } from '../../lib/motion';
 import { FileText, Plus, AlertTriangle } from 'lucide-react';
@@ -48,7 +48,7 @@ export default function HospitalRecords() {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <div className="page-header flex items-center justify-between">
-        <div><h1 className="page-title">Medical Records</h1><p className="page-subtitle">{records.length} records Â· Sample Data Only</p></div>
+        <div><h1 className="page-title">Medical Records</h1><p className="page-subtitle">{records.length} records - Sample Data Only</p></div>
         <button onClick={() => setIsModalOpen(true)} className="btn-primary"><Plus size={15} /> Add Record</button>
       </div>
       <div className="mb-5 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-center gap-2">
@@ -64,7 +64,7 @@ export default function HospitalRecords() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="font-semibold text-slate-900 dark:text-white font-heading">{r.patientName}</p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">{r.doctorName} Â· {format(new Date(r.visitDate), 'PPP')}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{r.doctorName} - {format(new Date(r.visitDate), 'PPP')}</p>
                 </div>
                 <span className="badge bg-amber-50 dark:bg-amber-900/20 text-amber-700 text-xs">Sample</span>
               </div>

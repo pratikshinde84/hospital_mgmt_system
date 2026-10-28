@@ -1,4 +1,4 @@
-﻿import { motion } from '../../lib/motion';
+import { motion } from '../../lib/motion';
 import { cn } from '../../utils/cn';
 
 interface LoadingSpinnerProps {

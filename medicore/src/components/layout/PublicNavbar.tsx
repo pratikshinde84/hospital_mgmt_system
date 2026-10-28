@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from '../../lib/motion';
 import { Menu, X, Heart, Moon, Sun, LogIn, UserPlus } from 'lucide-react';

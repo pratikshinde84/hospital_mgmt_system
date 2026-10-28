@@ -1,4 +1,4 @@
-﻿import { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
@@ -68,7 +68,7 @@ export default function HospitalDashboard() {
           Welcome, {user?.name}
         </motion.h1>
         <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-          {format(new Date(), 'EEEE, MMMM d, yyyy')} Â· Hospital Dashboard
+          {format(new Date(), 'EEEE, MMMM d, yyyy')} - Hospital Dashboard
         </p>
       </div>
 
@@ -167,7 +167,7 @@ export default function HospitalDashboard() {
                     <StatusBadge status={appt.status} />
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    {appt.doctorName} Â· {format(new Date(appt.date), 'MMM d')} at {appt.timeSlot}
+                    {appt.doctorName} - {format(new Date(appt.date), 'MMM d')} at {appt.timeSlot}
                   </p>
                 </div>
               ))}

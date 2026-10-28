@@ -1,4 +1,4 @@
-﻿import { useMemo } from 'react';
+import { useMemo } from 'react';
 import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
 import { Pill, AlertTriangle, Printer, Download, Calendar, User } from 'lucide-react';
@@ -29,7 +29,7 @@ function printPrescription(rx: Prescription) {
       <div class="logo">MediCore â€” Sample Prescription</div>
       <div>${rx.hospitalName}</div>
     </div>
-    <div class="disclaimer">âš ï¸ SAMPLE DATA â€” NOT A VALID MEDICAL DOCUMENT. This is a demo prescription from a college project. Not for any medical use.</div>
+    <div class="disclaimer">âš  SAMPLE DATA â€” NOT A VALID MEDICAL DOCUMENT. This is a demo prescription from a college project. Not for any medical use.</div>
     <p><strong>Patient:</strong> ${rx.patientName}</p>
     <p><strong>Doctor:</strong> ${rx.doctorName}</p>
     <p><strong>Date:</strong> ${format(new Date(rx.issueDate), 'PPP')}</p>

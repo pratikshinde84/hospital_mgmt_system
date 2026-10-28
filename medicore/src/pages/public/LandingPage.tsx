@@ -1,4 +1,4 @@
-﻿import { useRef } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from '../../lib/motion';
 import {
@@ -407,7 +407,7 @@ export default function LandingPage() {
                   <div>
                     <p className="text-sm font-semibold text-slate-900 dark:text-white">{t.name}</p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {t.role} Â· {t.city}
+                      {t.role} - {t.city}
                     </p>
                   </div>
                 </div>
@@ -543,7 +543,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-            <p>Â© 2026 MediCore â€” College Final Year Project. All sample data is fictional.</p>
+            <p>(c) 2026 MediCore â€” College Final Year Project. All sample data is fictional.</p>
             <p className="text-slate-500">
               Built with React + TypeScript + Tailwind CSS
             </p>

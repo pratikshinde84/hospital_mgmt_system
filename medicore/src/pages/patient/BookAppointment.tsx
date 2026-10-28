@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from '../../lib/motion';
 import { format } from 'date-fns';
@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 import { useAuth } from '../../context/AuthContext';
 import { getAllUsers } from '../../services/authService';
 import { getDoctorsByHospital, getAvailableSlots } from '../../services/doctorService';
+import { PaymentModal } from '../../components/common/PaymentModal';
 import { bookAppointment } from '../../services/appointmentService';
 import type { HospitalUser, Doctor } from '../../types';
 
@@ -27,6 +28,7 @@ export default function BookAppointment() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchHospital, setSearchHospital] = useState('');
   const [searchDoctor, setSearchDoctor] = useState('');
+  const [showPayment, setShowPayment] = useState(false);
 
   const hospitals = useMemo(
     () => getAllUsers().filter((u): u is HospitalUser => u.role === 'hospital'),
@@ -203,7 +205,7 @@ export default function BookAppointment() {
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                 {selectedHospital?.hospitalName}
-                {selectedDept && ` Â· ${selectedDept}`}
+                {selectedDept && ` - ${selectedDept}`}
               </p>
               <input
                 value={searchDoctor}
@@ -238,8 +240,8 @@ export default function BookAppointment() {
                         </div>
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 space-y-0.5">
-                        <p>{d.experience} yrs experience Â· {d.qualification}</p>
-                        <p className="font-medium text-slate-700 dark:text-slate-300">â‚¹{d.consultationFee} consultation fee</p>
+                        <p>{d.experience} yrs experience - {d.qualification}</p>
+                        <p className="font-medium text-slate-700 dark:text-slate-300">Rs. {d.consultationFee} consultation fee</p>
                         <p>Works: {d.workingDays.map((w) => w.slice(0, 3)).join(', ')}</p>
                       </div>
                     </button>
@@ -257,7 +259,7 @@ export default function BookAppointment() {
                 <Calendar size={18} className="text-blue-600" /> Select Date & Time
               </h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">
-                {selectedDoctor?.fullName} Â· Works on: {selectedDoctor?.workingDays.map((w) => w.slice(0, 3)).join(', ')}
+                {selectedDoctor?.fullName} - Works on: {selectedDoctor?.workingDays.map((w) => w.slice(0, 3)).join(', ')}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -340,7 +342,7 @@ export default function BookAppointment() {
                   { label: 'Department', value: selectedDoctor?.department, icon: Stethoscope },
                   { label: 'Date', value: selectedDate ? format(new Date(selectedDate), 'PPP') : '', icon: Calendar },
                   { label: 'Time', value: selectedSlot, icon: Clock },
-                  { label: 'Consultation Fee', value: `â‚¹${selectedDoctor?.consultationFee}`, icon: CheckCircle },
+                  { label: 'Consultation Fee', value: `Rs. ${selectedDoctor?.consultationFee}`, icon: CheckCircle },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50">
                     <div className="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
@@ -359,9 +361,17 @@ export default function BookAppointment() {
                   </div>
                 )}
               </div>
-              <div className="mt-5 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800">
+              {/* Platform Fee */}
+              <div className="mt-4 p-4 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">MediCore Platform Fee</p>
+                  <p className="text-xs text-slate-500">Booking convenience fee</p>
+                </div>
+                <span className="text-lg font-bold text-blue-600">Rs. 50</span>
+              </div>
+              <div className="mt-3 p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800">
                 <p className="text-xs text-amber-700 dark:text-amber-400">
-                  Demo Application: This appointment is stored locally in your browser only. Not a real medical booking.
+                  Demo Application: No real payment is processed. Tap "Pay & Confirm" for a demo payment flow.
                 </p>
               </div>
             </div>
@@ -427,17 +437,28 @@ export default function BookAppointment() {
             </button>
           ) : (
             <button
-              onClick={handleBook}
+              onClick={() => setShowPayment(true)}
               disabled={isLoading}
               className="btn-primary"
             >
-              {isLoading ? 'Booking...' : (
-                <><CheckCircle size={16} /> Confirm Booking</>
-              )}
+              <CheckCircle size={16} /> Pay & Confirm (Rs. 50)
             </button>
           )}
         </div>
       )}
+
+      {/* Payment Modal for booking fee */}
+      <PaymentModal
+        isOpen={showPayment}
+        onClose={() => setShowPayment(false)}
+        title="Booking Payment"
+        fixedAmount={50}
+        fixedLabel="MediCore Platform Booking Fee"
+        onSuccess={() => {
+          setShowPayment(false);
+          handleBook();
+        }}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-﻿import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from '../../lib/motion';
 import { format } from 'date-fns';
-import { Calendar, Search, Filter, Download, RefreshCw, X } from 'lucide-react';
+import { Calendar, Search, Filter, Download, RefreshCw, X, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '../../context/AuthContext';
 import {
@@ -183,12 +183,12 @@ export default function PatientAppointments() {
                     <StatusBadge status={appt.status} />
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
-                    {appt.department} Â· {appt.hospitalName}
+                    {appt.department} - {appt.hospitalName}
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs text-slate-500 dark:text-slate-400">
-                    <span>ðŸ“… {format(new Date(appt.date), 'PPP')}</span>
-                    <span>ðŸ• {appt.timeSlot}</span>
-                    <span>ðŸ’° â‚¹{appt.consultationFee}</span>
+                    <span className="flex items-center gap-1"><Calendar size={11}/>{format(new Date(appt.date), 'PPP')}</span>
+                    <span className="flex items-center gap-1"><Clock size={11}/>{appt.timeSlot}</span>
+                    <span>Rs. {appt.consultationFee}</span>
                   </div>
                   <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">ID: {appt.id}</p>
                 </div>

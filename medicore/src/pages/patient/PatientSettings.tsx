@@ -1,4 +1,4 @@
-﻿import { motion } from '../../lib/motion';
+import { motion } from '../../lib/motion';
 import { Moon, Sun, Monitor, Trash2, AlertTriangle, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTheme } from '../../context/ThemeContext';

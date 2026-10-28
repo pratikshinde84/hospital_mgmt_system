@@ -1,4 +1,4 @@
-﻿import { useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from '../../lib/motion';
 import {
@@ -15,11 +15,11 @@ import { StatusBadge } from '../../components/common/StatusBadge';
 import type { HospitalUser, Appointment } from '../../types';
 
 const HEALTH_TIPS = [
-  { tip: 'Drink at least 8 glasses of water daily to stay hydrated.', icon: 'ðŸ’§' },
-  { tip: 'Aim for 7â€“9 hours of sleep each night for optimal health.', icon: 'ðŸ˜´' },
-  { tip: 'Take a 30-minute walk daily to improve cardiovascular health.', icon: 'ðŸš¶' },
-  { tip: 'Eat a balanced diet rich in fruits, vegetables, and whole grains.', icon: 'ðŸ¥—' },
-  { tip: 'Schedule regular preventive checkups with your doctor.', icon: 'ðŸ¥' },
+  { tip: 'Drink at least 8 glasses of water daily to stay hydrated.', icon: 'Hydration' },
+  { tip: 'Aim for 7-9 hours of sleep each night for optimal health.', icon: 'Sleep' },
+  { tip: 'Take a 30-minute walk daily to improve cardiovascular health.', icon: 'Exercise' },
+  { tip: 'Eat a balanced diet rich in fruits, vegetables, and whole grains.', icon: 'Nutrition' },
+  { tip: 'Schedule regular preventive checkups with your doctor.', icon: 'Checkup' },
 ];
 
 function StatCard({ label, value, icon: Icon, color, sublabel }: {
@@ -82,7 +82,7 @@ export default function PatientDashboard() {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          {greeting}, {user?.name?.split(' ')[0] ?? 'there'} ðŸ‘‹
+          {greeting}, {user?.name?.split(' ')[0] ?? 'there'}!
         </motion.h1>
         <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
           {format(new Date(), 'EEEE, MMMM d, yyyy')}
@@ -166,7 +166,7 @@ export default function PatientDashboard() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-slate-900 dark:text-white truncate">{appt.doctorName}</p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        {format(new Date(appt.date), 'MMM d, yyyy')} Â· {appt.timeSlot}
+                        {format(new Date(appt.date), 'MMM d, yyyy')} - {appt.timeSlot}
                       </p>
                     </div>
                     <StatusBadge status={appt.status} />
@@ -270,7 +270,7 @@ export default function PatientDashboard() {
                 const tip = HEALTH_TIPS[new Date().getDay() % HEALTH_TIPS.length];
                 return (
                   <>
-                    <span className="text-2xl block mb-2">{tip.icon}</span>
+                    <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 mb-1">{tip.icon}</p>
                     <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{tip.tip}</p>
                   </>
                 );

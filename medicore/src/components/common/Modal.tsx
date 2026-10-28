@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from '../../lib/motion';
 import { X } from 'lucide-react';
 import { cn } from '../../utils/cn';

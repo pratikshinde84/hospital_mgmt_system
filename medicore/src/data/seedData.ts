@@ -12,7 +12,7 @@ import type {
 import { generateId } from '../storage';
 
 // ============================================================
-// Demo Seed Data — All fictional, for demonstration purposes
+// Demo Seed Data - All fictional, for demonstration purposes
 // ============================================================
 
 const now = new Date().toISOString();
@@ -106,7 +106,7 @@ export const seedHospitals: HospitalUser[] = [
     hospitalType: 'General Hospital',
     licenseNumber: 'MH-HOSP-2015-4521',
     description:
-      'Apollo MediCare Hospital is a premier multi-specialty hospital providing world-class healthcare services with state-of-the-art infrastructure. [Demo Hospital — Sample Data]',
+      'Apollo MediCare Hospital is a premier multi-specialty hospital providing world-class healthcare services with state-of-the-art infrastructure. [Demo Hospital - Sample Data]',
     address: '12, Apollo Road, Andheri West',
     city: 'Mumbai',
     state: 'Maharashtra',
@@ -154,7 +154,7 @@ export const seedHospitals: HospitalUser[] = [
     hospitalType: 'Children\'s Hospital',
     licenseNumber: 'MH-HOSP-2018-7832',
     description:
-      'Sunrise Children\'s Hospital specializes in comprehensive pediatric care with a team of dedicated pediatricians and child health specialists. [Demo Hospital — Sample Data]',
+      'Sunrise Children\'s Hospital specializes in comprehensive pediatric care with a team of dedicated pediatricians and child health specialists. [Demo Hospital - Sample Data]',
     address: '56, Sunrise Boulevard, Koregaon Park',
     city: 'Pune',
     state: 'Maharashtra',
@@ -186,7 +186,7 @@ export const seedHospitals: HospitalUser[] = [
     hospitalType: 'Specialty Hospital',
     licenseNumber: 'DL-HOSP-2020-1234',
     description:
-      'HeartCare Cardiac Institute is a leading specialty hospital focused on advanced cardiovascular treatments and cardiac surgeries. [Demo Hospital — Sample Data]',
+      'HeartCare Cardiac Institute is a leading specialty hospital focused on advanced cardiovascular treatments and cardiac surgeries. [Demo Hospital - Sample Data]',
     address: '89, Cardio Complex, Connaught Place',
     city: 'Delhi',
     state: 'Delhi',
@@ -227,7 +227,7 @@ export const seedHospitals: HospitalUser[] = [
     hospitalType: 'General Hospital',
     licenseNumber: 'KA-HOSP-2012-5678',
     description:
-      'MediTrust General Hospital is a trusted multi-specialty medical center serving the Bengaluru community with comprehensive healthcare services. [Demo Hospital — Sample Data]',
+      'MediTrust General Hospital is a trusted multi-specialty medical center serving the Bengaluru community with comprehensive healthcare services. [Demo Hospital - Sample Data]',
     address: '23, Health Park, Jayanagar',
     city: 'Bengaluru',
     state: 'Karnataka',
@@ -299,7 +299,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Rajesh Kapoor is a senior cardiologist with 15 years of experience in interventional cardiology and heart failure management. [Demo Profile — Sample Data]',
+      'Dr. Rajesh Kapoor is a senior cardiologist with 15 years of experience in interventional cardiology and heart failure management. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.kapoor@apollo.demo',
     phone: '+91 98765 11111',
@@ -318,7 +318,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'wednesday', 'friday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Sunita Mehta specializes in treating neurological disorders including epilepsy, Parkinson\'s disease, and stroke management. [Demo Profile — Sample Data]',
+      'Dr. Sunita Mehta specializes in treating neurological disorders including epilepsy, Parkinson\'s disease, and stroke management. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.mehta@apollo.demo',
     phone: '+91 98765 22222',
@@ -337,7 +337,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['tuesday', 'thursday', 'saturday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Amit Singh is an orthopedic surgeon specializing in joint replacement, sports injuries, and spine care. [Demo Profile — Sample Data]',
+      'Dr. Amit Singh is an orthopedic surgeon specializing in joint replacement, sports injuries, and spine care. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.singh@apollo.demo',
     phone: '+91 98765 33333',
@@ -356,7 +356,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Kavitha Rao is a dedicated pediatrician providing comprehensive child health care from newborns to adolescents. [Demo Profile — Sample Data]',
+      'Dr. Kavitha Rao is a dedicated pediatrician providing comprehensive child health care from newborns to adolescents. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.rao@apollo.demo',
     phone: '+91 98765 44444',
@@ -375,7 +375,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Meera Joshi specializes in diagnosing and treating neurological conditions in children including epilepsy, autism, and developmental delays. [Demo Profile — Sample Data]',
+      'Dr. Meera Joshi specializes in diagnosing and treating neurological conditions in children including epilepsy, autism, and developmental delays. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.joshi@sunrise.demo',
     phone: '+91 87654 55555',
@@ -394,7 +394,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Sanjay Gupta is an eminent cardiac surgeon with two decades of experience in open-heart surgery and minimally invasive cardiac procedures. [Demo Profile — Sample Data]',
+      'Dr. Sanjay Gupta is an eminent cardiac surgeon with two decades of experience in open-heart surgery and minimally invasive cardiac procedures. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.gupta@heartcare.demo',
     phone: '+91 76543 66666',
@@ -413,7 +413,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['monday', 'wednesday', 'thursday', 'friday', 'saturday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Ananya Reddy is a compassionate gynecologist specializing in maternal healthcare, high-risk pregnancies, and minimally invasive gynecological surgeries. [Demo Profile — Sample Data]',
+      'Dr. Ananya Reddy is a compassionate gynecologist specializing in maternal healthcare, high-risk pregnancies, and minimally invasive gynecological surgeries. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.reddy@meditrust.demo',
     phone: '+91 65432 77777',
@@ -432,7 +432,7 @@ export const seedDoctors: Doctor[] = [
     workingDays: ['tuesday', 'thursday', 'saturday'],
     timeSlots: defaultSlots,
     biography:
-      'Dr. Vikram Nair is an experienced ENT specialist treating conditions related to ear, nose, throat, and head & neck disorders. [Demo Profile — Sample Data]',
+      'Dr. Vikram Nair is an experienced ENT specialist treating conditions related to ear, nose, throat, and head & neck disorders. [Demo Profile - Sample Data]',
     isAvailable: true,
     email: 'dr.nair@meditrust.demo',
     phone: '+91 54321 88888',
@@ -458,7 +458,7 @@ export const seedAppointments: Appointment[] = [
     department: 'Cardiology',
     date: future(3),
     timeSlot: '10:00',
-    reason: 'Routine cardiac checkup and ECG review [Demo — Sample Data]',
+    reason: 'Routine cardiac checkup and ECG review [Demo - Sample Data]',
     status: 'confirmed',
     consultationFee: 800,
     createdAt: past(2),
@@ -476,7 +476,7 @@ export const seedAppointments: Appointment[] = [
     department: 'Pediatrics',
     date: past(10).split('T')[0],
     timeSlot: '11:00',
-    reason: 'General health check [Demo — Sample Data]',
+    reason: 'General health check [Demo - Sample Data]',
     status: 'completed',
     consultationFee: 600,
     createdAt: past(15),
@@ -495,7 +495,7 @@ export const seedAppointments: Appointment[] = [
     department: 'Cardiac Surgery',
     date: past(20).split('T')[0],
     timeSlot: '09:30',
-    reason: 'Second opinion consultation [Demo — Sample Data]',
+    reason: 'Second opinion consultation [Demo - Sample Data]',
     status: 'cancelled',
     consultationFee: 1500,
     createdAt: past(25),
@@ -515,7 +515,7 @@ export const seedAppointments: Appointment[] = [
     department: 'Neurology',
     date: future(5),
     timeSlot: '14:00',
-    reason: 'Recurring migraine evaluation [Demo — Sample Data]',
+    reason: 'Recurring migraine evaluation [Demo - Sample Data]',
     status: 'pending',
     consultationFee: 900,
     createdAt: past(1),
@@ -533,7 +533,7 @@ export const seedAppointments: Appointment[] = [
     department: 'Cardiac Surgery',
     date: future(7),
     timeSlot: '10:30',
-    reason: 'Pre-surgical consultation [Demo — Sample Data]',
+    reason: 'Pre-surgical consultation [Demo - Sample Data]',
     status: 'confirmed',
     consultationFee: 1500,
     createdAt: past(3),
@@ -557,7 +557,7 @@ export const seedMedicalRecords: MedicalRecord[] = [
     appointmentId: 'appt_demo002',
     visitDate: past(10).split('T')[0],
     symptoms: 'Mild fatigue, occasional headaches [Sample Data]',
-    diagnosis: 'General fatigue — lifestyle-related [Sample Data]',
+    diagnosis: 'General fatigue - lifestyle-related [Sample Data]',
     treatment: 'Advised adequate rest, hydration, and iron-rich diet [Sample Data]',
     notes: 'Follow-up in 4 weeks if symptoms persist [Sample Data]',
     createdAt: past(10),
@@ -597,10 +597,10 @@ export const seedPrescriptions: Prescription[] = [
       },
     ],
     instructions:
-      'Increase water intake. Rest adequately. Avoid excessive caffeine. [Sample Data — Not a Valid Medical Document]',
+      'Increase water intake. Rest adequately. Avoid excessive caffeine. [Sample Data - Not a Valid Medical Document]',
     issueDate: past(10).split('T')[0],
     validUntil: future(20),
-    diagnosis: 'General fatigue — lifestyle-related [Sample Data]',
+    diagnosis: 'General fatigue - lifestyle-related [Sample Data]',
     createdAt: past(10),
   },
 ];

@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from '../../lib/motion';
 import { Plus, Search, Edit2, Trash2, Stethoscope, X, AlertCircle, ToggleLeft, ToggleRight } from 'lucide-react';
 import { toast } from 'sonner';

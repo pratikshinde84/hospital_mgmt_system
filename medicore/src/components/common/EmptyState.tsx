@@ -1,4 +1,4 @@
-﻿import { motion } from '../../lib/motion';
+import { motion } from '../../lib/motion';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '../../utils/cn';
 

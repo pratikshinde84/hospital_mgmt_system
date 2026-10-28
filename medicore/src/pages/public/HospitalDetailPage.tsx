@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from '../../lib/motion';
 import { MapPin, Phone, Clock, Hospital, Star, Calendar,

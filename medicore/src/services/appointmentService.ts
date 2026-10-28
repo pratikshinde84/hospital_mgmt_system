@@ -317,7 +317,7 @@ export function getHospitalAnalytics(hospitalId: string) {
     percentage: totalAppointments > 0 ? Math.round((count / totalAppointments) * 100) : 0,
   }));
 
-  // Trends — last 14 days
+  // Trends - last 14 days
   const trends = [];
   for (let i = 13; i >= 0; i--) {
     const d = new Date();

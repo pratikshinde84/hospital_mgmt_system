@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { format } from 'date-fns';
 import { motion } from '../../lib/motion';
 import { Pill, Plus, AlertTriangle, Printer } from 'lucide-react';
@@ -54,7 +54,7 @@ export default function HospitalPrescriptions() {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <div className="page-header flex items-center justify-between">
-        <div><h1 className="page-title">Prescriptions</h1><p className="page-subtitle">{prescriptions.length} prescriptions Â· Sample Data Only</p></div>
+        <div><h1 className="page-title">Prescriptions</h1><p className="page-subtitle">{prescriptions.length} prescriptions - Sample Data Only</p></div>
         <button onClick={() => setIsModalOpen(true)} className="btn-primary"><Plus size={15} /> Add Prescription</button>
       </div>
       <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl flex items-center gap-2">
@@ -70,7 +70,7 @@ export default function HospitalPrescriptions() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="font-semibold text-slate-900 dark:text-white font-heading">{rx.patientName}</p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">{rx.doctorName} Â· {format(new Date(rx.issueDate), 'PPP')}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{rx.doctorName} - {format(new Date(rx.issueDate), 'PPP')}</p>
                   <p className="text-sm text-blue-600 dark:text-blue-400 mt-0.5">{rx.diagnosis}</p>
                 </div>
                 <span className="badge bg-amber-50 text-amber-700 text-xs">Sample</span>

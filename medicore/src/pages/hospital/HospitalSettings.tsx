@@ -3,12 +3,13 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { Moon, Sun, Monitor, Lock, RefreshCw, AlertTriangle, Eye, EyeOff } from 'lucide-react';
+import { Moon, Sun, Monitor, Lock, RefreshCw, AlertTriangle, Eye, EyeOff, Zap, CheckCircle } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import { changePassword } from '../../services/authService';
 import { resetAllDemoData } from '../../storage/initStorage';
 import { ConfirmDialog } from '../../components/common/Modal';
+import { PaymentModal } from '../../components/common/PaymentModal';
 import { cn } from '../../utils/cn';
 
 const pwSchema = z.object({
@@ -23,6 +24,7 @@ export default function HospitalSettings() {
   const { theme, setTheme } = useTheme();
   const { user } = useAuth();
   const [showPwd, setShowPwd] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
   const [resetConfirm, setResetConfirm] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<PwForm>({ resolver: zodResolver(pwSchema) });
 
@@ -71,6 +73,40 @@ export default function HospitalSettings() {
           </form>
         </div>
 
+      {/* Subscription Plans */}
+        <div className="card p-6">
+          <h3 className="font-semibold text-slate-900 dark:text-white font-heading mb-1 flex items-center gap-2">
+            <Zap size={16} className="text-blue-600" /> Hospital Subscription
+          </h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">Unlock full hospital management features</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+            {[
+              { name: 'Starter', price: 499, period: 'month', features: ['Up to 3 Doctors', 'Appointment Management', 'Basic Analytics'] },
+              { name: 'Professional', price: 1499, period: 'month', popular: true, features: ['Up to 15 Doctors', 'All Features', 'Advanced Analytics', 'Priority Support'] },
+              { name: 'Enterprise', price: 2999, period: 'month', features: ['Unlimited Doctors', 'Custom Branding', 'Dedicated Support', 'API Access'] },
+            ].map(plan => (
+              <div key={plan.name} className={`p-4 rounded-2xl border-2 ${plan.popular ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700'}`}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-slate-900 dark:text-white text-sm">{plan.name}</span>
+                  {plan.popular && <span className="badge bg-blue-600 text-white text-xs">Popular</span>}
+                </div>
+                <p className="text-lg font-bold text-blue-600 mb-3">Rs. {plan.price}<span className="text-xs text-slate-400 font-normal">/{plan.period}</span></p>
+                <ul className="space-y-1 mb-3">
+                  {plan.features.map(f => (
+                    <li key={f} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+                      <CheckCircle size={10} className="text-green-500 shrink-0" />{f}
+                    </li>
+                  ))}
+                </ul>
+                <button onClick={() => setShowPayment(true)} className="w-full py-2 rounded-xl bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition-all">
+                  Subscribe
+                </button>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-amber-600">Demo subscription - no real payment processed. For project demonstration only.</p>
+        </div>
+
         <div className="card p-6">
           <h3 className="font-semibold text-slate-900 dark:text-white font-heading mb-2">Reset Demo Data</h3>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Revert all sample data back to defaults.</p>
@@ -84,6 +120,17 @@ export default function HospitalSettings() {
         </div>
       </div>
       <ConfirmDialog isOpen={resetConfirm} onClose={() => setResetConfirm(false)} onConfirm={handleReset} title="Reset Demo Data" message="Reset all sample data?" confirmLabel="Reset" variant="warning" />
+      <PaymentModal
+        isOpen={showPayment}
+        onClose={() => setShowPayment(false)}
+        title="Hospital Subscription"
+        plans={[
+          { id: 'starter', name: 'Starter', price: 499, period: 'month', features: ['Up to 3 Doctors', 'Appointment Mgmt', 'Basic Analytics'] },
+          { id: 'pro', name: 'Professional', price: 1499, period: 'month', popular: true, features: ['Up to 15 Doctors', 'All Features', 'Priority Support'] },
+          { id: 'ent', name: 'Enterprise', price: 2999, period: 'month', features: ['Unlimited Doctors', 'Custom Branding', 'Dedicated Support'] },
+        ]}
+        onSuccess={() => { setShowPayment(false); toast.success('Subscription activated! (Demo)'); }}
+      />
     </div>
   );
 }
