@@ -223,7 +223,7 @@ export default function PatientProfile() {
                     {showCurrentPwd ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
-                <InputError msg={passwordForm.formState.errors.currentPassword?.message} />
+                <InputError msg={passwordForm.formState.errors.currentPassword?.message as string | undefined} />
               </div>
               <div>
                 <label className="label">New Password</label>
@@ -238,12 +238,12 @@ export default function PatientProfile() {
                     {showNewPwd ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
-                <InputError msg={passwordForm.formState.errors.newPassword?.message} />
+                <InputError msg={passwordForm.formState.errors.newPassword?.message as string | undefined} />
               </div>
               <div>
                 <label className="label">Confirm New Password</label>
                 <input type="password" {...passwordForm.register('confirmPassword')} className="input-field" />
-                <InputError msg={passwordForm.formState.errors.confirmPassword?.message} />
+                <InputError msg={passwordForm.formState.errors.confirmPassword?.message as string | undefined} />
               </div>
               <div className="flex justify-end">
                 <button type="submit" className="btn-primary">

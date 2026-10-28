@@ -1,4 +1,7 @@
-// Central re-export of framer-motion to fix module resolution issues
-// All components should import from here, not directly from 'framer-motion'
-export { motion, AnimatePresence, useInView, useAnimation } from 'framer-motion';
-export type { Variants, Transition, MotionProps } from 'framer-motion';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fm = require('framer-motion') as any;
+
+export const motion = fm.motion;
+export const AnimatePresence = fm.AnimatePresence;
+export const useInView = fm.useInView;
+export const useAnimation = fm.useAnimation;

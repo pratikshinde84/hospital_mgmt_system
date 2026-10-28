@@ -2,7 +2,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from '../../lib/motion';
 import { MapPin, Phone, Clock, Hospital, Star, Calendar,
-  Building2, CheckCircle, User, ExternalLink, AlertTriangle, ArrowLeft, Stethoscope
+  Building2, CheckCircle, User, ExternalLink, AlertTriangle, ArrowLeft, Stethoscope, Shield
 } from 'lucide-react';
 import { PublicNavbar } from '../../components/layout/PublicNavbar';
 import { getAllUsers } from '../../services/authService';

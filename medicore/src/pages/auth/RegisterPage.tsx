@@ -6,7 +6,11 @@ import { z } from 'zod';
 import { motion, AnimatePresence } from '../../lib/motion';
 import { Eye, EyeOff, Heart, UserPlus, AlertCircle, Info, User, Building } from 'lucide-react';
 import { toast } from 'sonner';
-import { registerPatient, registerHospital } from '../../services/authService';
+import {
+  registerPatient,
+  registerHospital,
+  login,
+} from '../../services/authService';
 import { useAuth } from '../../context/AuthContext';
 import type { HospitalType } from '../../types';
 import { cn } from '../../utils/cn';
@@ -72,10 +76,12 @@ export default function RegisterPage() {
   const patientForm = useForm<PatientForm>({ resolver: zodResolver(patientSchema) });
   const hospitalForm = useForm<HospitalForm>({ resolver: zodResolver(hospitalSchema) });
 
+import { login } from '../../services/authService';
+
   const onPatientSubmit = async (data: PatientForm) => {
     setIsLoading(true);
     await new Promise((r) => setTimeout(r, 500));
-    const result = registerPatient(data);
+    const result = registerPatient(data as Parameters<typeof registerPatient>[0]);
     setIsLoading(false);
 
     if (!result.success) {
@@ -83,8 +89,6 @@ export default function RegisterPage() {
       return;
     }
 
-    // Auto-login
-    const { login } = await import('../../services/authService');
     login(data.email, data.password);
     refreshSession();
     toast.success('Account created! Welcome to MediCore.');
@@ -94,7 +98,7 @@ export default function RegisterPage() {
   const onHospitalSubmit = async (data: HospitalForm) => {
     setIsLoading(true);
     await new Promise((r) => setTimeout(r, 500));
-    const result = registerHospital({ ...data, hospitalType: data.hospitalType as HospitalType });
+    const result = registerHospital({ ...data, hospitalType: data.hospitalType as HospitalType } as Parameters<typeof registerHospital>[0]);
     setIsLoading(false);
 
     if (!result.success) {
@@ -102,7 +106,6 @@ export default function RegisterPage() {
       return;
     }
 
-    const { login } = await import('../../services/authService');
     login(data.email, data.password);
     refreshSession();
     toast.success('Hospital registered! Welcome to MediCore.');

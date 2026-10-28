@@ -178,7 +178,7 @@ export function updateUserProfile(
     ...users[index],
     ...updates,
     updatedAt: new Date().toISOString(),
-  };
+  } as AnyUser;
 
   setStorage(STORAGE_KEYS.USERS, users);
 
